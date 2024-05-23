@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-
+import {deposit,withdraw} from "./actions";
 function Form() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
@@ -56,8 +56,8 @@ function Form() {
               setAmount(data);
             }}/>
           </div>
-          <button className="btn btn-primary col-2 m-2" onClick={()=>{dispatch({type:"deposit",payload:amount})}}>Deposit</button>
-          <button className="btn btn-primary col-2 m-2" onClick={()=>{dispatch({type:"withdraw",payload:amount})}}>Withdraw</button>
+          <button className="btn btn-primary col-2 m-2" onClick={()=>{dispatch(deposit(amount))}}>Deposit</button>
+          <button className="btn btn-primary col-2 m-2" onClick={()=>{dispatch(withdraw(amount))}}>Withdraw</button>
         </div>
       </div>
     </div>
